@@ -469,6 +469,12 @@ body {
 .case-card:hover .case-logo-wrap img {
     filter: grayscale(0) opacity(1);
 }
+.case-logo-wrap img.logo-invert {
+    filter: invert(1) grayscale(1) opacity(0.55);
+}
+.case-card:hover .case-logo-wrap img.logo-invert {
+    filter: invert(1) opacity(1);
+}
 .case-abbr {
     font-family: var(--font-serif);
     font-size: 20px;
