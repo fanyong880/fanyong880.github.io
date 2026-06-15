@@ -460,7 +460,7 @@ body {
 }
 .case-logo-wrap img {
     max-height: 40px;
-    max-width: 160px;
+    max-width: 110px;
     width: auto;
     object-fit: contain;
     filter: grayscale(1) opacity(0.55);
@@ -474,6 +474,9 @@ body {
 }
 .case-card:hover .case-logo-wrap img.logo-invert {
     filter: invert(1) opacity(1);
+}
+.case-logo-wrap img.logo-cuhk {
+    max-width: 200px;
 }
 .case-abbr {
     font-family: var(--font-serif);

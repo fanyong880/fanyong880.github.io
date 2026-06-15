@@ -51,6 +51,57 @@ const T = {
         contact_note:    '添加微信后请备注\u300c留学咨询\u300d，顾问将在工作时间内回复。初次咨询免费，欢迎学生及家长直接联系。',
         footer: '道玉留学咨询工作室 \u00a0·\u00a0 2026',
     },
+    en: {
+        brand:          'DaoYu Consulting',
+        nav_about:      'About',
+        nav_services:   'Services',
+        nav_cases:      'Cases',
+        nav_contact:    'Contact',
+        hero_eyebrow:   'Global English-Taught Programs Consulting Studio',
+        hero_title_1:   'Dao',
+        hero_title_2:   'Yu',
+        hero_tagline:   'Jade untreated cannot become a vessel · A foreign stone can polish your own',
+        hero_sub:       'Undergraduate \u00a0·\u00a0 Graduate \u00a0·\u00a0 Transfer \u00a0·\u00a0 Summer Research',
+        hero_cta:       'Get in Touch',
+        section_about:  'About DaoYu',
+        about_p1:       '"DaoYu" draws on two classical sayings: "Jade untreated cannot become a vessel" and "A foreign stone can polish your own." We believe every student is raw jade waiting to be shaped — and overseas universities are those foreign stones.',
+        about_p2:       'Our role is not to become the vessel for you, but to help you find the right stone. You write your own story; we guide you at every step — from topic selection and structure to language refinement.',
+        about_p3:       'We focus on English-taught programs worldwide, covering universities in North America, East Asia, and Southeast Asia — because the right path is not always through the US.',
+        quote_text:     'The story that moves admissions officers most is one only you can tell. Our job is to help you find that story and shape how you tell it.',
+        quote_cite:     '— DaoYu Consulting Philosophy',
+        mission_label:  'Our Mission',
+        mission_text:   'To make professional international admissions guidance accessible to families of all economic backgrounds. Studying abroad is not a privilege reserved for the wealthy.',
+        section_services: 'Services',
+        svc1_title:     'Admissions Planning',
+        svc1_desc:      'Tailored school lists and application strategies built around each student\'s profile and goals, covering reach, match, and safety schools.',
+        svc1_t1: 'Undergraduate', svc1_t2: 'Graduate', svc1_t3: 'Transfer', svc1_t4: 'Summer Research',
+        svc2_title:     'Essay Coaching',
+        svc2_desc:      'Students author their own essays; consultants guide topic selection, structure, and language throughout — ensuring every piece is an authentic and compelling self-portrait.',
+        svc2_t1: 'Personal Statement', svc2_t2: 'Essay / SOP', svc2_t3: 'CV / Resume',
+        svc3_title:     'Scholarship Support',
+        svc3_desc:      'Systematic mapping of Merit Scholarships and research assistantships at target schools, helping students maximize funding and reduce the total cost of studying abroad.',
+        svc3_t1: 'Merit Scholarship', svc3_t2: 'RA / TA Funding', svc3_t3: 'Institutional Awards',
+        svc4_title:     'Visa Guidance',
+        svc4_desc:      'End-to-end support for student visa applications — document checklists, interview prep, and issue resolution for the US, Japan, Malaysia, and other destinations.',
+        svc4_t2: 'Japan Student Visa', svc4_t3: 'Malaysia Student Pass',
+        pricing_label:  'Consultation Fees',
+        pricing_text:   'From ¥5,000',
+        pricing_sub:    'Exact fees vary by service scope. Contact us via WeChat for details.',
+        section_cases:  'Success Stories',
+        case_um:    'University of Malaya',
+        case_kyoto: 'Kyoto University',
+        case_utokyo:'University of Tokyo',
+        case_unm:   'Univ. of New Mexico',
+        case_ua:    'Univ. of Arizona',
+        case_cu:    'CU Boulder',
+        case_sbu:   'Stony Brook Univ.',
+        case_cuhk:  'CUHK',
+        cases_note: 'A selection of partner universities and successful cases · Spanning undergraduate, graduate, transfer, and summer research programs',
+        section_contact: 'Contact Us',
+        contact_label:   'WeChat',
+        contact_note:    'After adding our WeChat, please leave a note: "Study Abroad Inquiry". A consultant will reply during business hours. First consultation is free — students and parents are welcome.',
+        footer: 'DaoYu Consulting Studio \u00a0·\u00a0 2026',
+    },
     tw: {
         brand:          '道玉留學',
         nav_about:      '關於',
@@ -114,14 +165,16 @@ function applyLang(lang) {
         const key = el.dataset.i18n;
         if (dict[key] !== undefined) el.textContent = dict[key];
     });
-    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : 'zh-Hant';
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang === 'tw' ? 'zh-Hant' : 'en';
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
     // Update page title
     document.title = lang === 'zh'
         ? '道玉留学 — 全球英语授课升学咨询'
-        : '道玉留學 — 全球英語授課升學諮詢';
+        : lang === 'tw'
+        ? '道玉留學 — 全球英語授課升學諮詢'
+        : 'DaoYu Consulting — Global English-Taught Programs';
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -129,7 +182,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 });
 
 // Apply saved language on load
-if (currentLang === 'tw') applyLang('tw');
+if (currentLang !== 'zh') applyLang(currentLang);
 
 
 // ===== LOADER =====
